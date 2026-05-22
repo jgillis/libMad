@@ -4,13 +4,17 @@ on:
   pull_request:
 jobs:
   build_linux:
-    name: Build binaries - ubuntu-latest
+    name: Build binaries - manylinux_2_28_x86_64
     runs-on: ubuntu-latest
+    container:
+      image: quay.io/pypa/manylinux_2_28_x86_64
     strategy:
       fail-fast: false
       matrix:
         julia-version: ['1']
     steps:
+    - name: install system dependencies
+      run: dnf install -y openssh-clients
     - uses: actions/checkout@v4
     - uses: webfactory/ssh-agent@v0.9.0
       with:

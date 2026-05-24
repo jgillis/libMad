@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.12.4"
+julia_version = "1.12.6"
 manifest_format = "2.0"
 project_hash = "1840f8eda337f7c418e4bd46c06d0482ce33b1e7"
 
@@ -94,11 +94,11 @@ version = "0.5.0"
 
 [[deps.CUDA]]
 deps = ["AbstractFFTs", "Adapt", "BFloat16s", "CEnum", "CUDA_Compiler_jll", "CUDA_Driver_jll", "CUDA_Runtime_Discovery", "CUDA_Runtime_jll", "Crayons", "ExprTools", "GPUArrays", "GPUCompiler", "GPUToolbox", "KernelAbstractions", "LLVM", "LLVMLoopInfo", "LazyArtifacts", "Libdl", "LinearAlgebra", "Logging", "NVTX", "Preferences", "PrettyTables", "Printf", "Random", "Random123", "RandomNumbers", "Reexport", "SparseArrays", "StaticArrays", "Statistics", "demumble_jll"]
-git-tree-sha1 = "a1eb5e5b173d02bdddfa4234e36b44286ea1661d"
+git-tree-sha1 = "5540fa20f0a67a71b7fd0c81ae14c0cc5be77f8b"
 repo-rev = "ap/local-compiler-backport"
 repo-url = "https://github.com/apozharski/CUDA.jl.git"
 uuid = "052768ef-5323-5732-b1bb-66c8b64840ba"
-version = "5.11.0"
+version = "5.11.1"
 
     [deps.CUDA.extensions]
     ChainRulesCoreExt = "ChainRulesCore"
@@ -424,8 +424,8 @@ version = "0.5.16"
 
 [[deps.MadNLP]]
 deps = ["LDLFactorizations", "LinearAlgebra", "Logging", "MUMPS_seq_jll", "NLPModels", "OpenBLAS32_jll", "Pkg", "PrecompileTools", "Printf", "SolverCore", "SparseArrays", "SuiteSparse"]
-git-tree-sha1 = "15df5759c271c2b8e841807491ca249c66a9079f"
-repo-rev = "7fed853"
+git-tree-sha1 = "1b7145a3b54db07dacd699e58ab65dc71a492147"
+repo-rev = "master"
 repo-url = "https://github.com/apozharski/MadNLP.jl.git"
 uuid = "2621e9c9-9eb4-46b1-8089-e8c72242dfb6"
 version = "0.9.1"
@@ -438,8 +438,8 @@ version = "0.9.1"
 
 [[deps.MadNLPGPU]]
 deps = ["AMD", "Adapt", "GPUArraysCore", "KernelAbstractions", "LinearAlgebra", "MadNLP", "Metis", "SparseArrays"]
-git-tree-sha1 = "b511e26f9c75b7eb5f0192b1300b6987989f4deb"
-repo-rev = "7fed853"
+git-tree-sha1 = "563b7e59d455b88c9b9978d0756de52ad6d4f52b"
+repo-rev = "master"
 repo-subdir = "lib/MadNLPGPU"
 repo-url = "https://github.com/apozharski/MadNLP.jl.git"
 uuid = "d72a61cc-809d-412f-99be-fd81f4b8a598"
@@ -457,7 +457,7 @@ version = "0.8.0"
 [[deps.MadNLPHSL]]
 deps = ["HSL", "LinearAlgebra", "MadNLP"]
 git-tree-sha1 = "b3c4560554a05efca7f651ac783c8ff532c0b1be"
-repo-rev = "7fed853"
+repo-rev = "master"
 repo-subdir = "lib/MadNLPHSL"
 repo-url = "https://github.com/apozharski/MadNLP.jl.git"
 uuid = "7fb6135f-58fe-4112-84ca-653cf5be0c77"

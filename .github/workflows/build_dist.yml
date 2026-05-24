@@ -33,6 +33,8 @@ jobs:
       run: mkdir build && cd build && mkdir install && cmake .. -DCMAKE_INSTALL_PREFIX="install" && cmake --build . --target install --config Release
     - name: trim out unnecessary artifacts
       run: cd build/install/share/julia/artifacts && rm -rf $(julia --project=${{ github.workspace }} ${{ github.workspace }}/scripts/trim_cuda_artifacts.jl)
+    - name: install auditwheel
+      run: python3 -m pip install --quiet auditwheel
     - name: inspect libMad.so manylinux compliance
       run: |
         set -e

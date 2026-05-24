@@ -33,6 +33,32 @@ jobs:
       run: mkdir build && cd build && mkdir install && cmake .. -DCMAKE_INSTALL_PREFIX="install" && cmake --build . --target install --config Release
     - name: trim out unnecessary artifacts
       run: cd build/install/share/julia/artifacts && rm -rf $(julia --project=${{ github.workspace }} ${{ github.workspace }}/scripts/trim_cuda_artifacts.jl)
+    - name: inspect libMad.so manylinux compliance
+      run: |
+        set -e
+        SO=$(find build/install -name 'libMad.so*' -type f | head -1)
+        echo "=== $SO ==="
+        file "$SO"
+        echo
+        echo "=== NEEDED (DT_NEEDED) ==="
+        objdump -p "$SO" | grep NEEDED
+        echo
+        echo "=== ldd ==="
+        ldd "$SO" || true
+        echo
+        echo "=== required GLIBC versions ==="
+        objdump -T "$SO" | grep -oE 'GLIBC_[0-9.]+' | sort -Vu
+        echo
+        echo "=== required GLIBCXX versions ==="
+        (objdump -T "$SO" | grep -oE 'GLIBCXX_[0-9.]+' | sort -Vu) || echo "(none)"
+        echo
+        echo "=== auditwheel lddtree ==="
+        python3 -m auditwheel lddtree "$SO" || true
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libMad-manylinux_2_28_x86_64
+        path: build/install
+        if-no-files-found: error
 
   build_windows:
     name: Build binaries - windows-latest
